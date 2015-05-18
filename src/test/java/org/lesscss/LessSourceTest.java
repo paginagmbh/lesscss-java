@@ -32,6 +32,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.net.URLDecoder;
 import java.nio.charset.Charset;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -68,7 +69,7 @@ public class LessSourceTest {
         imports.put("import3", import3);
 
 		URL sourceUrl = getClass().getResource("/compatibility/a_source.less");
-        sourceFile = new File(sourceUrl.getFile());
+        sourceFile = new File(URLDecoder.decode( sourceUrl.getFile(), "UTF-8" ));
     }
     
     @Test
@@ -142,7 +143,7 @@ public class LessSourceTest {
 
     private String readLessSourceWithEncoding(String encoding) throws IOException, IllegalAccessException {
         URL sourceUrl = getClass().getResource("/compatibility/utf8-content.less");
-        File sourceFile = new File(sourceUrl.getFile());
+        File sourceFile = new File(URLDecoder.decode( sourceUrl.getFile(), "UTF-8" ));
         LessSource lessSource = new LessSource(new FileResource(sourceFile), Charset.forName(encoding));
         return (String) FieldUtils.readField(lessSource, "content", true);
     }
