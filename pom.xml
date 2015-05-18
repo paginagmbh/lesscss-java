@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.lesscss</groupId>
     <artifactId>lesscss</artifactId>
-    <version>1.7.0.1.2-SNAPSHOT</version>
+    <version>1.7.5.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Official LESS CSS Compiler for Java</name>
     <description>Official LESS CSS Compiler for Java</description>
-    <url>http://github.com/marceloverdijk/lesscss-java</url>
+    <url>http://github.com/paginagmbh/lesscss-java</url>
     
     <parent>
         <groupId>org.sonatype.oss</groupId>
@@ -240,17 +240,27 @@
             </roles>
             <timezone>0</timezone>
         </developer>
+        <developer>
+            <id>tofi86</id>
+            <name>Tobias Fischer</name>
+            <email>tobias.fischer@pagina-tuebingen.de</email>
+            <url>https://github.com/tofi86</url>
+            <roles>
+                <role>Developer</role>
+            </roles>
+            <timezone>+1</timezone>
+        </developer>
     </developers>
     
     <issueManagement>
         <system>GitHub</system>
-        <url>http://github.com/marceloverdijk/lesscss-java/issues</url>
+        <url>http://github.com/paginagmbh/lesscss-java/issues</url>
     </issueManagement>
     
     <scm>
-        <connection>scm:git:git@github.com:marceloverdijk/lesscss-java.git</connection>
-        <developerConnection>scm:git:git@github.com:marceloverdijk/lesscss-java.git</developerConnection>
-        <url>http://github.com/marceloverdijk/lesscss-java</url>
+        <connection>scm:git:git@github.com:paginagmbh/lesscss-java.git</connection>
+        <developerConnection>scm:git:git@github.com:paginagmbh/lesscss-java.git</developerConnection>
+        <url>http://github.com/paginagmbh/lesscss-java</url>
     </scm>
     
 </project>
