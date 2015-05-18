@@ -1,4 +1,4 @@
-/* LESS.js v1.7.0 RHINO | Copyright (c) 2009-2014, Alexis Sellier <self@cloudhead.net> */
+/* Less.js v1.7.5 RHINO | Copyright (c) 2009-2014, Alexis Sellier <self@cloudhead.net> */
 
 /*global name:true, less, loadStyleSheet, os */
 
@@ -205,7 +205,7 @@ function writeFile(filename, content) {
         switch (arg) {
             case 'v':
             case 'version':
-                console.log("lessc " + less.version.join('.') + " (LESS Compiler) [JavaScript]");
+                console.log("lessc " + less.version.join('.') + " (Less Compiler) [JavaScript]");
                 continueProcessing = false;
                 break;
             case 'verbose':
@@ -446,5 +446,4 @@ function writeFile(filename, content) {
         writeError(e, options);
         quit(1);
     }
-    console.log("done");
 }(arguments));
