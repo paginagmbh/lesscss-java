@@ -38,8 +38,8 @@ public abstract class AbstractCompileIT {
 		String actual = lessCompiler.compile(lessFile);
 		String expected = FileUtils.readFileToString(cssFile);
 		
-		expected = expected.replace("\r\n", "\n");
-		expected += "\n";
+		expected = expected.replaceAll("\r\n", "\n");
+		expected += "\r\n";
 		
 		assertEquals(expected, actual);
 	}

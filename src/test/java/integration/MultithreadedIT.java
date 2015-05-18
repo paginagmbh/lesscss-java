@@ -66,7 +66,7 @@ public class MultithreadedIT extends AbstractCompileIT {
 		String expected = FileUtils.readFileToString(cssFile);
 		String actual = lessCompiler.compile(lessFile);
 		expected = expected.replace("\r\n", "\n");
-		expected += "\n";
+		expected += "\r\n";
 		waiter.assertEquals(expected, actual);
 	}
 }
