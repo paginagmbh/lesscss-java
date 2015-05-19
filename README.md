@@ -1,3 +1,11 @@
+----
+
+> This is a fork of https://github.com/marceloverdijk/lesscss-java/ which doesn't seem to be maintained anymore.
+> We updated the lesscss library to 1.7.5 and fixed some small bugs.
+> Feel free to use this fork but be aware that it is neither published on maven.org nor do we actively support this fork! Issues are closed.
+
+----
+
 Official LESS CSS Compiler for Java
 ===================================
 
@@ -46,12 +54,6 @@ The LESS CSS Compiler for Java contains all LESS compatibility tests. All tests 
 The project also contains integration tests for compiling the Twitter Bootstrap (http://twitter.github.com/bootstrap/) library. If you are using another 3th party LESS library you want to be added to the integration tests, just create a issue and provide a link to the library.
 
 
-Support
--------
-
-Have a question, or found an issue? Just create a issue: https://github.com/marceloverdijk/lesscss-java/issues
-
-
 Building From Source
 --------------------
 
@@ -67,17 +69,29 @@ You may also wish to build API Documentation:
 
     mvn javadoc:javadoc
 
+
+Release an update (in a forked repo)
+------------------------------------
+
+For this reason, in this fork the *maven-gpg-sign* process is set to skip during `mvn release:prepare` and the produced JARs aren't signed!
+
+Run the following from a Git Bash where GitHub login via SSH key is enabled:
+
+    mvn release:prepare
+	mvn release:perform
+
+This will create JAR bundles, a git version tag and commit and push itself to this repo.
+
+
 Authors
 -------
 
 **Marcel Overdijk**
-
 + marcel@overdijk.me
 + http://twitter.com/marceloverdijk
 + http://github.com/marceloverdijk
 
 **Craig Andrews**
-
 + candrews@integralblue.com
 + http://candrews.integralblue.com
 
@@ -85,8 +99,9 @@ Authors
 + http://twitter.com/chpopov
 + http://uk.linkedin.com/in/hpopov/
 
-**Tobias Fischer**
+**Tobias Fischer** (pagina GmbH)
 + https://github.com/tofi86
++ https://github.com/paginagmbh
 
 Copyright and License
 ---------------------
