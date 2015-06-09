@@ -65,7 +65,10 @@ function loadStyleSheet(sheet, callback, reload, remaining) {
     var endOfPath = Math.max(name.lastIndexOf('/'), name.lastIndexOf('\\')),
         sheetName = name.slice(0, endOfPath + 1) + sheet.href,
         contents = sheet.contents || {},
-        input = readFile(sheetName);
+        // OXYGEN PATCH START -----------------------------
+        //  input = readFile(sheetName);
+        input = readFile(sheetName, "utf-8");
+        // OXYGEN PATCH END -------------------------------
 
     input = input.replace(/^\xEF\xBB\xBF/, '');
         
@@ -123,7 +126,10 @@ less.Parser.fileLoader = function (file, currentFileInfo, callback, env) {
 
     var data = null;
     try {
-        data = readFile(href);
+        // OXYGEN PATCH START -----------------------------
+        //  data = readFile(href);
+        data = readFile(href, "utf-8");
+        // OXYGEN PATCH END -------------------------------
     } catch (e) {
         callback({ type: 'File', message: "'" + less.modules.path.basename(href) + "' wasn't found" });
         return;
@@ -138,8 +144,26 @@ less.Parser.fileLoader = function (file, currentFileInfo, callback, env) {
 
 
 function writeFile(filename, content) {
+
+   // OXYGEN PATCH START -----------------------------
+   // Was:
+   /*
     var fstream = new java.io.FileWriter(filename);
     var out = new java.io.BufferedWriter(fstream);
+   */
+    var fileOs = new java.io.FileOutputStream(filename);
+    var writer;
+    var pattern = /^@charset "(.*?)";/g;
+    var match = pattern.exec(content);
+    if (match != null){
+    	// Take into account the encoding.
+    	writer = new java.io.OutputStreamWriter(fileOs, match[1]);
+    } else {
+    	writer = new java.io.OutputStreamWriter(fileOs, "UTF-8");
+    }
+    
+    var out = new java.io.BufferedWriter(writer);
+   // OXYGEN PATCH END -----------------------------   
     out.write(content);
     out.close();
 }
@@ -434,7 +458,9 @@ function writeFile(filename, content) {
                 result = root.toCSS(options);
                 if (output) {
                     writeFile(output, result);
-                    console.log("Written to " + output);
+                    // OXYGEN PATCH START -----------------------------
+                    // console.log("Written to " + output);
+                    // OXYHEN PATCH END -------------------------------
                 } else {
                     print(result);
                 }
